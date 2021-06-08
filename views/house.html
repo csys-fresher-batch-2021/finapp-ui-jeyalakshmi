@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>House Loan</title>
+    <style>
+        body {
+            background: url(https://miro.medium.com/max/1200/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg) no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        div.b {
+            position: absolute;
+            left: 3px;
+            width: 500px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <div class="b">
+            <br>
+            <b>!...House Loan Available and Interest Details as Per Amount...!</b>
+            <br>
+            <br>
+            <br>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>!...Amount...!</th>
+                        <th>!...Intrest...!</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10 Lakhs</td>
+                        <td>2%</td>
+                    </tr>
+                    <tr>
+                        <td>25 Lakhs</td>
+                        <td>3%</td>
+                    </tr>
+                    <tr>
+                        <td>50 Lakhs</td>
+                        <td>5%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <br>
+            <br>
+            <b>
+                <i>Why House Loan in ABC ?</i>
+            </b>
+            <br>
+            <ul>
+                <li>Lower interest rate.</li>
+                <li>Tax benefits.</li>
+                <li>Reduced stamp duty.</li>
+            </ul>
+        </div>
+        <center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <b>!!...Select the Amount You Need...!!</b>
+            <br>
+            <br>
+            <select name="Amount" id="Amount">
+                <option disabled selected>select Amount</option>
+                <option value="1000000">10 Lakhs</option>
+                <option value="2500000">25 Lakhs</option>
+                <option value="5000000">50 Lakhs</option>
+            </select>
+            <br>
+            <br>
+            <b>Months to pay : </b>
+            <select name="months" id="months">
+                <option disabled selected>select the Month</option>
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="SUMBIT" onclick="calculation()">
+            <br>
+            <br>
+            <b>Your EMI per Month is :
+                <span id="total"></span>
+            </b>
+            <br>
+            <br>
+            <br>
+        </center>
+    </form>
+
+    <script>
+        function calculation() {
+            event.preventDefault();
+            let amount = document.querySelector("#Amount").value;
+            let Months = document.querySelector("#months").value;
+            console.log(amount);
+            localStorage.setItem("Amount", amount);
+            if (amount == "1000000") {
+                let Intrate = "2";
+                var Interest = (amount * (Intrate * 0.01)) / Months;
+                var Total = ((amount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else if (amount == "2500000") {
+                let Intrate = "3";
+                var Interest = (amount * (Intrate * 0.01)) / Months;
+                var Total = ((amount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else if (amount == "5000000") {
+                let Intrate = "5";
+                var Interest = (amount * (Intrate * 0.01)) / Months;
+                var Total = ((amount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else {
+                alert("Please Select the Amount");
+            }
+        }
+
+    </script>
+</body>
+
+</html>

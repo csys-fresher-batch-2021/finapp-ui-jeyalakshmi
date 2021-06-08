@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: url(https://miro.medium.com/max/1200/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg) no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+    <title>Education Loan</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <center>
+        <b>!!!.....Educational Loan.....!!!</b>
+        <br>
+        <br>
+        <b>
+            <i>Interest for Educational Loan is 2%</i>
+        </b>
+    </center>
+    <br>
+    <br>
+    <form>
+        <center>
+            <b>Enter Amount for Educational Loan (Max = 5 Lakhs) : </b>
+            <input type="number" name="eduamount" id="eduamount" placeholder="Enter the Amount" required/>
+            <br>
+            <br>
+            <b>Interest Rate :</b>
+            <br>
+            <br>
+            <input type="number" name="intrate" id="intrate" value="2" readonly/>
+            <br>
+            <br>
+            <b>Months to pay : </b>
+            <select name="months" id="months">
+                <option disabled selected>select the Month</option>
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="SUMBIT" onclick="calculation()">
+            <br>
+            <br>
+            <b>Your EMI per Month is :
+                <span id="total"></span>
+            </b>
+        </center>
+    </form>
+
+    <script>
+        function calculation() {
+            event.preventDefault();
+            let Eduamount = document.querySelector("#eduamount").value;
+            let Intrate = document.querySelector("#intrate").value;
+            let Months = document.querySelector("#months").value;
+            console.log(Eduamount);
+            if (Eduamount > 0 && Eduamount <= 500000) {
+                var Interest = (Eduamount * (Intrate * 0.01)) / Months;
+                var Total = ((Eduamount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else {
+                alert("Enter Valid Amount");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
