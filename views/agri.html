@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: url(https://miro.medium.com/max/1200/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg) no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+    <title>Agricultural Loan</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <center>
+        <h2>
+            <b>!!!.....Agricultural Loan.....!!!</b>
+        </h2>
+        <br>
+        <br>
+        <b>
+            <i>Interest for Agricultural Loan is 1%</i>
+        </b>
+    </center>
+    <br>
+    <br>
+    <form>
+        <center>
+            <b>Enter Available acre (Rs.7000/- per acre & Loan for Upto 99 Acre Only) : </b>
+            <input type="number" name="acre" id="acre" placeholder="Enter the acre" required/>
+            <br>
+            <br>
+            <b>Interest Rate :</b>
+            <br>
+            <br>
+            <input type="number" name="intrate" id="intrate" value="1" readonly/>
+            <br>
+            <br>
+            <b>Months to pay : </b>
+            <select name="months" id="months">
+                <option disabled selected>select the Month</option>
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="SUMBIT" onclick="calculation()">
+            <br>
+            <br>
+            <b>Your are Eligible for the Loan Amount :
+                <span id="acretotal"></span>
+            </b>
+            <br>
+            <br>
+            <b>Your EMI per Month is :
+                <span id="total"></span>
+            </b>
+        </center>
+    </form>
+
+    <script>
+        function calculation() {
+            event.preventDefault();
+            let Acre = document.querySelector("#acre").value;
+            let Intrate = document.querySelector("#intrate").value;
+            let Months = document.querySelector("#months").value;
+            console.log(Acre);
+            if (Acre > 0 && Acre < 100) {
+                let AcreTotal = Acre * 7000;
+                console.log(AcreTotal);
+                document.getElementById("acretotal").innerHTML = AcreTotal;
+                var Interest = (AcreTotal * (Intrate * 0.01)) / Months;
+                var Total = ((AcreTotal / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else {
+                alert("Enter Valid Acre");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

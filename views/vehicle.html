@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: url(https://miro.medium.com/max/1200/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg) no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+    <title>Vehicle.html</title>
+</head>
+
+<body>
+    <form>
+        <center>
+            <br>
+            <br>
+            <br>
+            <h2>
+                <b>!!!.....Vehicle Loan.....!!!</b>
+            </h2>
+            <br>
+            <br>
+            <b>
+                <i>Interest for Vehicle Loan is 3%</i>
+            </b>
+            <br>
+            <br>
+            <b>!!...Select the Vehicle Type...!!</b>
+            <br>
+            <br>
+            <select name="vehicle" id="vehicle">
+                <option disabled selected>Select Type</option>
+                <option value="twowheeler">Two Wheeler - 2 Lakhs</option>
+                <option value="fourwheeler">Four Wheeler - 5 Lakhs</option>
+                <option value="others">others - 7 Lakhs</option>
+            </select>
+            <br>
+            <br>
+            <b>Interest Rate :</b>
+            <br>
+            <br>
+            <input type="number" name="intrate" id="intrate" value="3" readonly/>
+            <br>
+            <br>
+            <b>Months to pay : </b>
+            <select name="months" id="months">
+                <option disabled selected>select the Month</option>
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="SUMBIT" onclick="calculation()">
+            <br>
+            <br>
+            <b>Your Intrest per Month is :
+                <span id="total"></span>
+            </b>
+        </center>
+    </form>
+
+    <script>
+        function calculation() {
+            event.preventDefault();
+            let Vehicle = document.querySelector("#vehicle").value;
+            let Intrate = document.querySelector("#intrate").value;
+            let Months = document.querySelector("#months").value;
+            console.log(Vehicle);
+            if (Vehicle == "twowheeler") {
+                var Peramount = 200000;
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else if (Vehicle == "fourwheeler") {
+                let Peramount = 500000;
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else if (Vehicle == "others") {
+                let Peramount = 700000;
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else {
+                alert("Please Select Any Option");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

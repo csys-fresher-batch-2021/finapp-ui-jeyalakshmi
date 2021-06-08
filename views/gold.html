@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: url(https://miro.medium.com/max/1200/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg) no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+    <title>Gold Loan</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <center>
+        <h2>
+            <b>!!!.....Gold Loan.....!!!</b>
+        </h2>
+        <br>
+        <br>
+        <b>
+            <i>Interest for Gold Loan is 1.5%</i>
+        </b>
+    </center>
+    <br>
+    <br>
+    <form>
+        <center>
+            <b>Enter Available Gram (Rs.3500/- per Gram & Loan for Upto 99 Grams Only) : </b>
+            <input type="number" name="gram" id="gram" placeholder="Enter the Gram" required/>
+            <br>
+            <br>
+            <b>Interest Rate :</b>
+            <br>
+            <br>
+            <input type="number" name="intrate" id="intrate" value="1.5" readonly/>
+            <br>
+            <br>
+            <b>Months to pay : </b>
+            <select name="months" id="months">
+                <option disabled selected>select the Month</option>
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="SUMBIT" onclick="calculation()">
+            <br>
+            <br>
+            <b>Your are Eligible for the Loan Amount :
+                <span id="totalamount"></span>
+            </b>
+            <br>
+            <br>
+            <b>Your Intrest per Month is :
+                <span id="total"></span>
+            </b>
+        </center>
+    </form>
+
+    <script>
+        function calculation() {
+            event.preventDefault();
+            let Gram = document.querySelector("#gram").value;
+            let Intrate = document.querySelector("#intrate").value;
+            let Months = document.querySelector("#months").value;
+            console.log(Gram);
+            if (Gram > 0 && Gram < 100) {
+                let TotalAmount = Gram * 3500;
+                console.log(TotalAmount);
+                document.getElementById("totalamount").innerHTML = TotalAmount;
+                var Interest = (TotalAmount * (Intrate * 0.01)) / Months;
+                var Total = ((TotalAmount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else {
+                alert("Enter Valid Gram");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

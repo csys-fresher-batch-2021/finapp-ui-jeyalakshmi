@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        body {
+            background: url(https://miro.medium.com/max/1200/1*AcYLHh0_ve4TNRi6HLFcPA.jpeg) no-repeat center center fixed;
+            background-size: cover;
+        }
+    </style>
+    <title>Personal Loan</title>
+</head>
+
+<body>
+    <br>
+    <br>
+    <br>
+    <center>
+        <h2>
+            <b>!!!.....Personal Loan.....!!!</b>
+        </h2>
+        <br>
+        <br>
+        <b>
+            <i>Interest for Personal Loan is 3%</i>
+        </b>
+    </center>
+    <br>
+    <br>
+    <form>
+        <center>
+            <b>Enter Amount for Personal Loan (Max = 10 Lakhs) : </b>
+            <input type="number" name="peramount" id="peramount" placeholder="Enter the Amount" required/>
+            <br>
+            <br>
+            <b>Interest Rate :</b>
+            <br>
+            <br>
+            <input type="number" name="intrate" id="intrate" value="3" readonly/>
+            <br>
+            <br>
+            <b>Months to pay : </b>
+            <select name="months" id="months">
+                <option disabled selected>select the Month</option>
+                <option value="12">12 Months</option>
+                <option value="24">24 Months</option>
+                <option value="36">36 Months</option>
+                <option value="48">48 Months</option>
+                <option value="60">60 Months</option>
+                <option value="72">72 Months</option>
+            </select>
+            <br>
+            <br>
+            <input type="submit" value="SUMBIT" onclick="calculation()">
+            <br>
+            <br>
+            <b>Your EMI per Month is :
+                <span id="total"></span>
+            </b>
+        </center>
+    </form>
+
+    <script>
+        function calculation() {
+            event.preventDefault();
+            let Peramount = document.querySelector("#peramount").value;
+            let Intrate = document.querySelector("#intrate").value;
+            let Months = document.querySelector("#months").value;
+            console.log(Peramount);
+            if (Peramount > 0 && Peramount <= 1000000) {
+                var Interest = (Peramount * (Intrate * 0.01)) / Months;
+                var Total = ((Peramount / Months) + Interest).toFixed(2);
+                document.getElementById("total").innerHTML = Total;
+            }
+            else {
+                alert("Enter Valid Amount");
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
